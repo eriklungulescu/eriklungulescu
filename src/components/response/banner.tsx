@@ -11,7 +11,7 @@ export const Banner = () => {
 
         <TerminalParagraph>
             ~~
-            <br/>👋 Welcome to my personal terminal and portoflio! 👋
+            <br/>👋 Welcome to my personal terminal and portfolio! 👋
             <br/>Type "help" to get started
             <br/>~~
             
