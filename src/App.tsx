@@ -20,15 +20,6 @@ const AppContainer = styled.div`
   overflow: hidden;
 `
 
-const ClickScreen = styled.div`
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  background-color: red;
-  opacity: 0;
-  z-index: 5;
-`
-
 const TerminalContainer = styled.div`
   z-index: 1;
   position: relative;
