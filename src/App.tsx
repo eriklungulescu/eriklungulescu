@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import './App.css';
 import { Input } from './components/input';
 import { Command } from './util/command';
+import { interpretCommand } from './util/command_interpreter';
 
 const AppContainer = styled.div`
   margin: 0;
@@ -15,25 +16,40 @@ const AppContainer = styled.div`
   min-height: 100vh;
   height: fit-content;
   width: 100vw;
+
+  overflow: hidden;
+`
+
+const ClickScreen = styled.div`
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: red;
+  opacity: 0;
+  z-index: 5;
 `
 
 const TerminalContainer = styled.div`
+  z-index: 1;
+  position: relative;
+  height: calc(100vh - 60px);
+  width: calc(100vw - 60px);
+
+  margin: 10px 10px;
+  padding: 5px 10px;
+
   background-color: inherit;
-  min-height: calc(100vh - 40px);
-  height: calc(100% - 40px);
-  width: calc(100vw - 40px);
-
-  margin: 0;
-  padding: 10px 10px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  align-items: flex-start;
-
   border: 3px solid #098b91;
   border-radius: 10px;
- 
+
+  overflow: auto;
+
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+
+  ::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+  }
 `
 
 const CommandDataContainer = styled.div`
@@ -43,39 +59,35 @@ const CommandDataContainer = styled.div`
   align-items: flex-start;
   background-color: inherit;
   height: fit-content;
-  width: 90%;
+  width: 100%;
   word-wrap: break-word;
   overflow-wrap: break-word;
   margin: 5px 0px;
   padding: 0;
-  transform: translateZ(-15px);
-  
 
-  h3 {
+  .command {
     margin-top: 0;
     margin-bottom: 5px;
     color: #6e9e37;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'CascadiaCode', monospace;
     font-size: 18px;
-  }
 
-  p {
-    width: 100%;
-    margin: 0;
-    word-wrap: break-word;
-    color: #c1c1c1;
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 18px;
+    span {
+      color: #c1c1c1;
+    }
   }
 `
 
 function App() {
-
   const [commandData, setCommandData] = useState<Command[]>([])
+  const inputRef = useRef<HTMLInputElement>(null)
 
-  useEffect(
-    () => {console.log("HERE")},
-  [commandData])
+  useEffect(() => {
+    inputRef.current?.scrollIntoView()
+  }, [commandData])
+  useEffect(() => {
+    setCommandData((oldArray) => [...oldArray, {command: "banner", value: interpretCommand("banner")}]) 
+  }, [])
 
   return (
     <AppContainer>
@@ -83,16 +95,14 @@ function App() {
         {
           commandData.map((command) => {
             return <CommandDataContainer>
-              <h3>
-                guest@eriklungulescu:$ ~ {command.command}
+              <h3 className='command'>
+                guest@eriklungulescu:<span color="#c1c1c1">$ ~ {command.command}</span>
               </h3>
-              <p>
-                {command.value}
-              </p>
+              {command.value}
             </CommandDataContainer>
           })
         }
-        <Input setCommandData={setCommandData} />
+        <Input setCommandData={setCommandData} innerRef={inputRef}/>
       </TerminalContainer>
     </AppContainer>
   )

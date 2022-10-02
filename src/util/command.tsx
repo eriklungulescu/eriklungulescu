@@ -1,4 +1,4 @@
 export interface Command {
     command: string,
-    value: string,
+    value: JSX.Element,
 }
