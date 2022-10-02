@@ -14,13 +14,6 @@ export const interpretCommand = (command: string) => {
         case "banner": {
             return <Banner />
         }
-        case "projects": {
-            return (
-                <p>
-                    Absolutely cracked out the wazoo.
-                </p>
-            )
-        }
         case "experience": {
             return (
                 <Jobs />
