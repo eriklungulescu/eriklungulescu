@@ -82,8 +82,8 @@ export const About = () => {
         }
     , [])
 
-    const languages : {name: string, color: string}[] = [{name: 'Java', color: '#e78b2e'}, {name: 'Typescript', color: "#3178c6"}, {name: 'Javascript', color: "#acac29"}, {name: 'Dart', color: "#3f74d7"},  {name: 'Python', color: "#36bc5e"}, {name: 'C', color: "#2b61c6"}, {name: 'C++', color: "#acac29"}, {name: 'SQL', color: "#2e2e2b"}]
-    const technologies: {name: string, color: string}[] = [{name: 'Amazon Web Services', color: "#807e60"}, {name: 'React', color: "#48adc6"}, {name: 'Spring Boot', color: '#33b727'}, {name: 'Node.js', color: '#308728'}, {name: 'Express.js', color: '#2b2d2b'}, {name: 'Flutter', color: '#284f87'}, {name: 'Jaeger', color: '#2fb8c2'}, {name: 'Docker', color: '#0db7ed'}]
+    const languages : {name: string, color: string}[] = [{name: 'Java', color: '#be5f00'}, {name: 'Typescript', color: "#3178c6"}, {name: 'Javascript', color: "#8b8b00"}, {name: 'Dart', color: "#3f74d7"},  {name: 'Python', color: "#1e8f40"}, {name: 'C', color: "#2b61c6"}, {name: 'C++', color: "#696900"}, {name: 'SQL', color: "#2e2e2b"}]
+    const technologies: {name: string, color: string}[] = [{name: 'Amazon Web Services', color: "#716f56"}, {name: 'React', color: "#3b90a5"}, {name: 'Spring Boot', color: '#1e541a'}, {name: 'Node.js', color: '#308728'}, {name: 'Express.js', color: '#2b2d2b'}, {name: 'Flutter', color: '#284f87'}, {name: 'Jaeger', color: '#26939b'}, {name: 'Docker', color: '#0896c1'}]
     const certifications: {name: string, color: string, link: string}[] = [{name: 'AWS Solutions Architect Associate', color: "#6e287b", link: "https://www.credly.com/badges/8b3e5171-0dbb-4399-a071-17053bc8b326/public_url"}, {name: 'AWS Certified Cloud Practitioner', color: "#aa2d72", link: "https://www.credly.com/badges/ec1b9063-f724-4396-9419-cd5f20cac907/public_url"}]
 
     return (
