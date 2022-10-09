@@ -51,6 +51,7 @@ const CommandDataContainer = styled.div`
   background-color: inherit;
   height: fit-content;
   width: 100%;
+  min-width: 700px;
   word-wrap: break-word;
   overflow-wrap: break-word;
   margin: 5px 0px;

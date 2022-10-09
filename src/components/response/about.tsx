@@ -56,6 +56,7 @@ const TechStackItem = styled.div`
     font-family: 'CascadiaCode', monospace;
     color: #c1c1c1;
     font-size: 18px;
+    white-space: nowrap;
     background-color: ${props => props.color ? props.color : "#3b82bc"};
     margin-right: 5px;
     padding: 2.5px 5px;
