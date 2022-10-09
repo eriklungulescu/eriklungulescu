@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const TerminalParagraph = styled.p`
     width: 100%;
+    min-width: 700px;
     margin: 0;
     word-wrap: break-word;
     font-family: 'CascadiaCode', monospace;

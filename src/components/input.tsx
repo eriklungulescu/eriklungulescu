@@ -8,6 +8,7 @@ const InputContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
     height: fit-content;
+    min-width: 700px;
     width: 100%;
     margin: 5px 0px;
     color: #c1c1c1;
